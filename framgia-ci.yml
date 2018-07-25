@@ -5,14 +5,6 @@ build:
     - cp config/database-ci.yml config/database.yml
     - gem update bundler
     - bundle install
-    - gem install rake
-    - gem install bundle-audit
-    - gem install rails_best_practices
-    - gem install rspec
-    - gem install scss_lint
-    - gem install brakeman
-    - gem install simplecov
-    - RAILS_ENV=test rake db:create db:migrate
     - framgia-ci run
     - ls .framgia-ci-reports/reports
 services:
@@ -25,10 +17,6 @@ services:
       MYSQL_ROOT_PASSWORD: root
 project_type: ruby
 test:
-  bundle-audit:
-    enable: true
-    ignore: true
-    command: bundle-audit check --update > .framgia-ci-reports/bundle-audit.txt
   rspec:
     enable: true
     ignore: true
