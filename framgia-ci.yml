@@ -1,12 +1,12 @@
 build:
   phpunit:
-    image: dangminhtruong/rails_base_with_ci:latest
+    image: daothaison/ruby-workspace:latest
     commands:
     - cp config/database-ci.yml config/database.yml
     - gem update bundler
     - bundle install
     - framgia-ci run
-    - ls .framgia-ci-reports/reports
+    - ls -la .framgia-ci-reports/
 services:
   mysql:
     image: mysql:5.7
